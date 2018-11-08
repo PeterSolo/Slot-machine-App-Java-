@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="SlotMachineApp">
+  <ClassDiagramComponents>
+    <Class name="MainClass" package="" visibility="public" xPosition="35.0" yPosition="20.0">
+      <Fields>
+        <Field name="Panel" type="JPanel" visibility="package"/>
+        <Field name="PanelTextfields" type="JPanel" visibility="package"/>
+        <Field name="BtnSpin" type="JButton" visibility="package"/>
+        <Field name="BtnAddCoin" type="JButton" visibility="package"/>
+        <Field name="TxtCredits" type="JTextField" visibility="package"/>
+        <Field name="LblCredits" type="JLabel" visibility="package"/>
+        <Field name="BtnBetOne" type="JButton" visibility="package"/>
+        <Field name="BtnBetMax" type="JButton" visibility="package"/>
+        <Field name="BtnReset" type="JButton" visibility="package"/>
+        <Field name="BtnStat" type="JButton" visibility="package"/>
+        <Field name="LblBetPlaced" type="JLabel" visibility="package"/>
+        <Field name="TxtBetPlaced" type="JTextField" visibility="package"/>
+        <Field name="PanelImages" type="JPanel" visibility="package"/>
+        <Field name="Imagelabel1" type="JLabel" visibility="package"/>
+        <Field name="Imagelabel2" type="JLabel" visibility="package"/>
+        <Field name="Imagelabel3" type="JLabel" visibility="package"/>
+        <Field name="StatFrame" type="JFrame" visibility="package"/>
+        <Field name="WinsStatDisplay" type="JLabel" visibility="package"/>
+        <Field name="LoseStatDisplay" type="JLabel" visibility="package"/>
+        <Field name="WinsStatBarDisplay" type="JTextField" visibility="package"/>
+        <Field name="LoseStatBarDisplay" type="JTextField" visibility="package"/>
+        <Field name="AverageDisplay" type="JLabel" visibility="package"/>
+        <Field name="AverageBarDisplay" type="JProgressBar" visibility="package"/>
+        <Field name="BtnstatSave" type="JButton" visibility="package"/>
+        <Field name="credits" type="int" visibility="package"/>
+        <Field name="credits2" type="int" visibility="package"/>
+        <Field name="winstat" type="int" visibility="package"/>
+        <Field name="BetResult" type="int" visibility="package"/>
+        <Field name="AverageNetted" type="double" visibility="package"/>
+        <Field name="SymbolSpinner1" type="Worker" visibility="package"/>
+        <Field name="SymbolSpinner2" type="Worker" visibility="package"/>
+        <Field name="SymbolSpinner3" type="Worker" visibility="package"/>
+        <Field name="reel1" type="Reel" visibility="package"/>
+        <Field name="reel2" type="Reel" visibility="package"/>
+        <Field name="reel3" type="Reel" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="compare" returnType="void" visibility="private"/>
+        <Method name="infoBox" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="infoMessage"/>
+          <Argument type="int" name="Res"/>
+        </Method>
+        <Method name="infoBoxD" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="infoMessage"/>
+          <Argument type="int" name="Res"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Reel" package="" visibility="public" xPosition="476.0" yPosition="74.0">
+      <Fields>
+        <Field name="Imageone" type="Symbol" visibility="private"/>
+        <Field name="Imagetwo" type="Symbol" visibility="private"/>
+        <Field name="Imagethree" type="Symbol" visibility="private"/>
+        <Field name="Imagefour" type="Symbol" visibility="private"/>
+        <Field name="Imagefive" type="Symbol" visibility="private"/>
+        <Field name="Imagesix" type="Symbol" visibility="private"/>
+        <Field name="symbol" type="ArrayList&lt;Symbol&gt;" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="spin" returnType="Symbol" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Symbol" package="" visibility="public" xPosition="823.0" yPosition="74.0">
+      <Fields>
+        <Field name="value" type="int" visibility="private"/>
+        <Field name="ImageDescription" type="ImageIcon" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="value"/>
+          <Argument type="ImageIcon" name="ImageDescription"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getImageDescription" returnType="ImageIcon" visibility="public"/>
+        <Method name="getValue" returnType="int" visibility="public"/>
+        <Method name="setImageDescription" returnType="void" visibility="public">
+          <Argument type="ImageIcon" name="ImageDescription"/>
+        </Method>
+        <Method name="setValue" returnType="void" visibility="public">
+          <Argument type="int" name="value"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Worker" package="" visibility="public" xPosition="749.0" yPosition="550.0">
+      <Fields>
+        <Field name="reelLabel" type="JLabel" visibility="package"/>
+        <Field name="reel" type="Reel" visibility="package"/>
+        <Field name="clickevt" type="boolean" visibility="package"/>
+        <Field name="i" type="int" visibility="package"/>
+        <Field name="finalval" type="int" visibility="package"/>
+        <Field name="lastsymbol" type="Symbol" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JLabel" name="Label"/>
+          <Argument type="Reel" name="r"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="doInBackground" returnType="Boolean" visibility="protected"/>
+        <Method name="process" returnType="void" visibility="protected">
+          <Argument type="List&lt;Symbol&gt;" name="chunks"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Isymbol" package="" visibility="public" xPosition="1303.0" yPosition="117.0">
+      <Methods>
+        <Method name="setImageDescription" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="ImageIcon" name="ImageDescription"/>
+        </Method>
+        <Method name="getImageDescription" returnType="ImageIcon" visibility="public" isAbstract="true"/>
+        <Method name="setValue" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="int" name="value"/>
+        </Method>
+        <Method name="getValue" returnType="int" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Imagetwo" source="Reel" target="Symbol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Reel" target="Symbol" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reel1" source="MainClass" target="Reel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Imageone" source="Reel" target="Symbol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Imagethree" source="Reel" target="Symbol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reel2" source="MainClass" target="Reel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reel3" source="MainClass" target="Reel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Symbol" target="Isymbol"/>
+    <HasRelation name="Imagefive" source="Reel" target="Symbol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Worker" target="Symbol" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="lastsymbol" source="Worker" target="Symbol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="symbol" source="Reel" target="Symbol" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Symbol&gt;"/>
+    <HasRelation name="SymbolSpinner2" source="MainClass" target="Worker" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="SymbolSpinner1" source="MainClass" target="Worker" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="SymbolSpinner3" source="MainClass" target="Worker" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Imagesix" source="Reel" target="Symbol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reel" source="Worker" target="Reel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Imagefour" source="Reel" target="Symbol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
